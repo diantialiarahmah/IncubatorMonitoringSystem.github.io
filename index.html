@@ -37,6 +37,8 @@
   <a href="#hardware">Hardware</a>
   <a href="#software">Software</a>
   <a href="#Environment Setup">Environment Setup</a>
+  <a href="#Hardware Setup">Hardware Setup</a>
+  <a href="#Arduino Programming">Arduino Programming</a>
   <a href="#implementasi">Implementasi</a>
   <a href="#trouble">Troubleshooting</a>
 </nav>
@@ -261,9 +263,84 @@ sudo apt install ros-jazzy-desktop -y</pre>
       </ul>
     </ul>
     
-<section id="implementasi">
-  <h2>Program Arduino</h2>
+<section id="Arduino Programming">
+  <h2>TAHAP 3: Arduino Programming</h2>
   <div class="card">
+  <p>Tahap ini bertujuan untuk memprogram Arduino Uno agar dapat membaca data suhu dan kelembapan dari sensor DHT11 serta mengaktifkan buzzer ketika kondisi inkubator berada di luar batas aman.</p>
+    <ul>
+    <p>1️⃣ Persiapan Software</p>
+    <ul>
+      <p>Sebelum menulis program, pastikan:</p>
+    <ul>
+      <li>Arduino IDE sudah terinstal </li>
+      <li>Board yang digunakan: Arduino Uno</li>
+      <li>Port COM sudah sesuai</li>
+      <li>Library DHT Sensor Library sudah terinstal:</li>
+    </ul>  
+    </ul>
+      <p>2️⃣ Inisialisasi Komponen</p>
+      <ul>
+        <p>Pada bagian awal program, dilakukan inisialisasi pin dan library.</p> 
+        <p>Penjelasan:</p>
+      <ul>
+      <li>Menentukan pin DATA sensor DHT11</li>
+      <li>Menentukan pin buzzer</li>
+      <li>Menentukan tipe sensor (DHT11)</li>
+      </ul>
+        <p>Code arduino ide:</p>
+        <pre>#include <DHT.h>
+
+#define DHTPIN 2        // Pin DATA DHT11
+#define DHTTYPE DHT11
+#define BUZZER 8        // Pin buzzer
+
+DHT dht(DHTPIN, DHTTYPE);
+
+void setup() {
+  Serial.begin(9600);
+  dht.begin();
+  pinMode(BUZZER, OUTPUT);
+
+  Serial.println("=== Monitoring Inkubator Bayi ===");
+}
+
+void loop() {
+  float kelembapan = dht.readHumidity();
+  float suhu = dht.readTemperature(); // Celcius
+
+  // Cek jika sensor gagal membaca
+  if (isnan(suhu) || isnan(kelembapan)) {
+    Serial.println("Gagal membaca sensor DHT11!");
+    digitalWrite(BUZZER, HIGH);
+    delay(1000);
+    digitalWrite(BUZZER, LOW);
+    delay(1000);
+    return;
+  }
+
+  // Tampilkan data
+  Serial.print("Suhu: ");
+  Serial.print(suhu);
+  Serial.print(" °C | Kelembapan: ");
+  Serial.print(kelembapan);
+  Serial.println(" %");
+
+  // Logika alarm inkubator bayi
+  if (suhu < 32 || suhu > 36 || kelembapan < 50 || kelembapan > 70) {
+    Serial.println("⚠️ PERINGATAN: Kondisi TIDAK AMAN!");
+    digitalWrite(BUZZER, HIGH);
+  } else {
+    Serial.println("✅ Kondisi AMAN");
+    digitalWrite(BUZZER, LOW);
+  }
+
+  Serial.println("----------------------------");
+  delay(2000);
+}
+</pre>
+    </ul>
+    
+    
 <pre>#include <DHT.h>
 
 #define DHTPIN 2        // Pin DATA DHT11
