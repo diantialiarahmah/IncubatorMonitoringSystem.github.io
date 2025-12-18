@@ -39,7 +39,6 @@
   <a href="#Environment Setup">Environment Setup</a>
   <a href="#Hardware Setup">Hardware Setup</a>
   <a href="#Arduino Programming">Arduino Programming</a>
-  <a href="#implementasi">Implementasi</a>
   <a href="#trouble">Troubleshooting</a>
 </nav>
 
@@ -338,62 +337,28 @@ void loop() {
   delay(2000);
 }
 </pre>
+ <p>3️⃣ Pembacaan Data Sensor</p>
+      <ul>
+        <p>Arduino membaca nilai suhu dan kelembapan secara berkala dari sensor DHT11.</p> 
+        <p>Penjelasan:</p>
+      <ul>
+      <li>Sensor mengirimkan data digital</li>
+      <li>Arduino menerima dan menyimpannya dalam variabel</li>
+      <li>Data dibaca setiap beberapa detik</li>
+      </ul>
+   <p>4️⃣ Logika Alarm Buzzer</p>
+      <ul>
+        <p>Arduino mengevaluasi hasil pembacaan:</p> 
+      <ul>
+      <li>Jika kondisi normal → buzzer mati</li>
+      <li>Jika kondisi tidak normal → buzzer aktif</li>
+      </ul> 
+      <p>📌 Buzzer berfungsi sebagai alarm peringatan dini</p>
     </ul>
-    
-    
-<pre>#include <DHT.h>
-
-#define DHTPIN 2        // Pin DATA DHT11
-#define DHTTYPE DHT11
-#define BUZZER 8        // Pin buzzer
-
-DHT dht(DHTPIN, DHTTYPE);
-
-void setup() {
-  Serial.begin(9600);
-  dht.begin();
-  pinMode(BUZZER, OUTPUT);
-
-  Serial.println("=== Monitoring Inkubator Bayi ===");
-}
-
-void loop() {
-  float kelembapan = dht.readHumidity();
-  float suhu = dht.readTemperature(); // Celcius
-
-  // Cek jika sensor gagal membaca
-  if (isnan(suhu) || isnan(kelembapan)) {
-    Serial.println("Gagal membaca sensor DHT11!");
-    digitalWrite(BUZZER, HIGH);
-    delay(1000);
-    digitalWrite(BUZZER, LOW);
-    delay(1000);
-    return;
-  }
-
-  // Tampilkan data
-  Serial.print("Suhu: ");
-  Serial.print(suhu);
-  Serial.print(" °C | Kelembapan: ");
-  Serial.print(kelembapan);
-  Serial.println(" %");
-
-  // Logika alarm inkubator bayi
-  if (suhu < 32 || suhu > 36 || kelembapan < 50 || kelembapan > 70) {
-    Serial.println("⚠️ PERINGATAN: Kondisi TIDAK AMAN!");
-    digitalWrite(BUZZER, HIGH);
-  } else {
-    Serial.println("✅ Kondisi AMAN");
-    digitalWrite(BUZZER, LOW);
-  }
-
-  Serial.println("----------------------------");
-  delay(2000);
-}
-</pre>
   </div>
 </section>
 
+    
 <section id="trouble">
   <h2>Troubleshooting</h2>
   <div class="card">
