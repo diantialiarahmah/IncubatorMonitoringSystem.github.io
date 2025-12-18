@@ -26,7 +26,7 @@
 
 <header>
   <h1>SMART INCUBATOR MONITORING SYSTEM</h1>
-  <p>Website Portofolio Robotika Medis</p>
+  <p>Website Robotika Medis</p>
 </header>
 
 <nav>
@@ -114,6 +114,41 @@
       <tr><td>IDE</td><td>Arduino IDE</td><td>2.x</td><td>Pemrograman mikrokontroler</td></tr>
       <tr><td>Bahasa</td><td>Python</td><td>3.10+</td><td>Logic node ROS 2</td></tr>
     </table>
+  </div>
+</section>
+
+<section id="Environment Setup">
+  <h2>Tahap I - Environment Setup</h2>
+  <div class="card">
+    <p>Tahap ini bertujuan untuk menyiapkan lingkungan kerja perangkat lunak agar sistem dapat dikembangkan, dijalankan, dan diintegrasikan dengan ROS 2 secara optimal.</p>
+    <ul>
+      <p>1️⃣ Menyiapkan Sistem Operasi Utama (Windows 11)</p>
+      <p>Windows 11 digunakan sebagai host system (sistem utama) untuk menjalankan seluruh pengembangan.</p>
+      <p>Fungsi Utama</p>
+      <li>Menjalankan Arduino IDE</li>
+      <li>Menjalankan Docker Desktop</li>
+      <li>Menjalankan WSL 2 sebagai jembatan ke Linux</li>
+      <p>Pastikan</p>
+      <li>Windows 11 sudah ter-update</li>
+      <li>Virtualization aktif di BIOS</li>
+      <li>RAM minimal 8 GB (disarankan)</li>
+      <p>2️⃣ Mengaktifkan WSL 2 (Windows Subsystem for Linux)</p>
+      <p>WSL 2 memungkinkan kita menjalankan Linux langsung di dalam Windows tanpa dual boot.</p>
+      <p>Langkah-langkah:</p>
+      <li>Buka PowerShell (Run as Administrator)</li>
+      <li>Jalankan perintah:</li>
+      <pre>wsl --install</pre>
+      <li>Restart komputer</li>
+      <li>Pastikan WSL versi 2:</li>
+      <pre>wsl --set-default-version 2</pre>
+      <p>3️⃣ Instalasi Ubuntu 24.04 LTS (OS Guest)</p>
+      <p>4️⃣ Update Sistem Ubuntu</p>
+      <p>5️⃣ Instalasi ROS 2 Jazzy Jalisco</p>
+      <p>6️⃣ Instalasi Docker Desktop</p>
+      <p>7️⃣ Menjalankan micro-ros-agent (Docker)</p>
+      <p>8️⃣ Instalasi Arduino IDE</p>
+      <p>9️⃣ Instalasi Python (untuk ROS 2 Node)</p>
+    </ul>
   </div>
 </section>
 
