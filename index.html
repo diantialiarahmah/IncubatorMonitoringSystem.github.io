@@ -23,7 +23,7 @@
 <body>
 <header>
   <h1>SMART INCUBATOR MONITORING SYSTEM</h1>
-  <p>Website Portofolio Tugas Proyek IoT & ROS 2</p>
+  <p>Website Robotika Medis</p>
 </header>
 <nav>
   <a href="#tentang">Tentang</a>
@@ -47,35 +47,37 @@
 <h2>Pentingnya Smart Incubator Monitoring System</h2>
 <div class="card">
 <h3>Pentingnya Pengaturan Suhu dan Kelembapan</h3>
-<p>Bayi terutama bayi prematur belum mampu mengatur suhu tubuhnya sendiri. Inkubator menjaga suhu dan kelembapan agar bayi tetap aman, nyaman, serta mendukung proses tumbuh kembang.</p>
+<p>Bayi, terutama bayi prematur, belum mampu mengatur suhu tubuhnya sendiri dengan baik. Oleh karena itu, inkubator berfungsi untuk menjaga suhu dan kelembapan yang stabil agar bayi tetap hangat, nyaman, dan aman. Kondisi lingkungan yang tepat membantu bayi bernapas dengan baik, menjaga kesehatan kulit, serta mendukung proses tumbuh kembangnya.</p>
 <h3>Risiko Kondisi Tidak Stabil</h3>
-<p>Suhu terlalu rendah atau tinggi serta kelembapan yang tidak sesuai dapat menyebabkan gangguan pernapasan, iritasi kulit, kehilangan cairan tubuh, hingga infeksi.</p>
+<p>Suhu dan kelembapan di dalam inkubator tidak terjaga dengan baik, bayi dapat mengalami berbagai masalah kesehatan. Suhu yang terlalu dingin dapat membuat bayi kedinginan, sedangkan suhu yang terlalu panas dapat menyebabkan bayi tidak nyaman dan kehilangan cairan tubuh. Kelembapan yang tidak sesuai juga dapat memicu gangguan pernapasan, iritasi kulit, hingga meningkatkan risiko infeksi.</p>
 <h3>Keterbatasan Pemantauan Manual</h3>
-<p>Pemantauan manual bersifat berkala dan berisiko terlambat mendeteksi perubahan kondisi inkubator.</p>
+<p>Pemantauan inkubator secara manual biasanya dilakukan dengan pengecekan berkala oleh tenaga medis. Cara ini memiliki keterbatasan karena kondisi inkubator bisa berubah kapan saja. Jika perubahan tersebut tidak segera diketahui, respons penanganan bisa terlambat. Selain itu, pemantauan manual sangat bergantung pada ketelitian manusia, sehingga berisiko terjadi kesalahan.</p>
 <h3>Alasan Sistem Otomatis</h3>
-<p>Sistem otomatis berbasis mikrokontroler memungkinkan pemantauan terus-menerus dan memberikan peringatan dini secara cepat.</p>
+<p>Sistem otomatis dipilih agar kondisi inkubator dapat dipantau secara terus-menerus tanpa henti. Dengan bantuan mikrokontroler dan sensor, suhu serta kelembaban dapat dipantau secara otomatis. Ketika kondisi tidak normal, sistem akan langsung memberikan peringatan melalui alarm, sehingga tindakan dapat segera dilakukan. Sistem ini sederhana, terjangkau, dan membantu meningkatkan keamanan bayi.</p>
 </div>
 </section>
 <section id="fitur">
 <h2>Fitur Penting Sistem</h2>
 <div class="card">
-<ul>
-<li>Real-Time Temperature & Humidity Monitoring</li>
-<li>Automatic Alarm System (Buzzer Alert)</li>
-<li>Centralized Monitoring (Multi-Inkubator Ready)</li>
-<li>ROS 2 Publisher–Subscriber Integration</li>
-</ul>
+<h3>Real-Time Temperature & Humidity Monitoring</h3>
+<p>Sistem memantau suhu dan kelembapan inkubator secara terus-menerus menggunakan sensor DHT11, sehingga kondisi lingkungan bayi selalu terkontrol.</p>
+<h3>Automatic Alarm System (Buzzer Alert)</h3>
+<p>Buzzer akan aktif secara otomatis ketika suhu atau kelembapan berada di luar batas aman, memberikan peringatan cepat tanpa perlu intervensi manual.</p>
+<h3>Centralized Monitoring (Multi-Inkubator Ready)</h3>
+<p>Sistem dapat dikembangkan untuk memantau lebih dari satu inkubator dalam satu jaringan ROS 2, cocok untuk lingkungan rumah sakit.</p>
+<h3>ROS 2 Publisher–Subscriber Integration</h3>
+<p>Data suhu dan kelembapan dipublikasikan sebagai topic ROS 2,  yang akan mempermudah Monitoring terpusat, memperbanyak subscriber (dashboard, server, nurse station) dan Komunikasi yang stabil dan real-time</p>
 </div>
 </section>
 <section id="arsitektur">
 <h2>Arsitektur Sistem</h2>
 <div class="card">
 <ul>
-<li><b>Sensor DHT11</b>: Membaca suhu dan kelembapan</li>
-<li><b>Arduino Uno</b>: Pemrosesan data</li>
-<li><b>Threshold Check</b>: Evaluasi kondisi aman</li>
-<li><b>Buzzer</b>: Alarm peringatan</li>
-<li><b>Sistem Monitoring Berulang</b>: Berjalan otomatis</li>
+<li><b>Sensor DHT11</b>: Sensor DHT11 berfungsi sebagai perangkat input yang membaca kondisi suhu dan kelembapan di dalam inkubator bayi secara berkala.</li>
+<li><b>Arduino Uno</b>: Arduino Uno bertindak sebagai pusat pemrosesan data, menerima data dari sensor DHT11 dan mengolahnya sesuai dengan program yang telah ditentukan.</li>
+<li><b>Threshold Check</b>: Data suhu dan kelembapan yang diterima akan dibandingkan dengan batas aman yang telah ditetapkan untuk menentukan apakah kondisi inkubator berada dalam keadaan normal atau tidak.</li>
+<li><b>Buzzer</b>: Menunjukkan kondisi tidak normal, Arduino Uno akan mengaktifkan buzzer sebagai alarm peringatan agar pengguna segera melakukan tindakan.</li>
+<li><b>Sistem Monitoring Berulang</b>: Sistem bekerja secara otomatis dan terus-menerus, melakukan pembacaan, pemrosesan, dan evaluasi data tanpa perlu pengoperasian manual.</li>
 </ul>
 </div>
 </section>
@@ -84,9 +86,9 @@
 <div class="card">
 <table>
 <tr><th>Komponen</th><th>Spesifikasi</th><th>Jumlah</th><th>Fungsi</th></tr>
-<tr><td>Arduino Uno</td><td>ATmega328P, 16 MHz</td><td>1</td><td>Pengolah data</td></tr>
-<tr><td>Sensor DHT11</td><td>0–50 °C, 20–90% RH</td><td>1</td><td>Mengukur suhu & kelembapan</td></tr>
-<tr><td>Active Buzzer</td><td>5 V DC</td><td>1</td><td>Alarm peringatan</td></tr>
+<tr><td>Arduino Uno</td><td>ATmega328P, 16 MHz</td><td>1</td><td>Mikrokontroler utama untuk mengolah data suhu dan kelembaban dari sensor</td></tr>
+<tr><td>Sensor DHT11</td><td>Suhu 0–50 °C, Kelembaban 20–90% RH</td><td>1</td><td>Mengukur suhu dan kelembaban di dalam inkubator bayi</td></tr>
+<tr><td>Active Buzzer</td><td>5 V DC</td><td>1</td><td>Memberikan alarm suara ketika suhu atau kelembaban melebihi batas aman</td></tr>
 </table>
 </div>
 </section>
@@ -94,18 +96,96 @@
 <h2>Perangkat Lunak (Software)</h2>
 <div class="card">
 <table>
-<tr><th>Kategori</th><th>Tools</th><th>Keterangan</th></tr>
-<tr><td>OS Host</td><td>Windows 11 + WSL 2</td><td>Lingkungan utama</td></tr>
-<tr><td>OS Guest</td><td>Ubuntu 24.04 LTS</td><td>ROS 2 Environment</td></tr>
-<tr><td>Middleware</td><td>ROS 2 Jazzy</td><td>Komunikasi data</td></tr>
-<tr><td>IDE</td><td>Arduino IDE</td><td>Pemrograman mikrokontroler</td></tr>
-<tr><td>Bahasa</td><td>Python</td><td>Logic node ROS 2</td></tr>
+<tr><th>Kategori</th><th>Tools</tr><th>Versi</th><th>Keterangan</th></tr>
+<tr><td>OS Host</td><td>Windows 11 + WSL 2</td><td>-</td><td>Digunakan sebagai sistem operasi utama dalam proses pengembangan sistem</td></tr>
+<tr><td>OS Guest</td><td>Ubuntu</td><td>24.04 LTS</td><td>Lingkungan Linux yang berfungsi untuk menjalankan layanan ROS 2</td></tr>
+<tr><td>Middleware</td><td>ROS 2 Jazzy Jalisco</td><td>Latest</td><td>Platform middleware untuk komunikasi dan manajemen sistem robotika</td></tr>
+<tr><td>Micro-ROS</td><td>Micro-ROS-Agent</td><td>Jazzy</td><td>Penghubung komunikasi antara perangkat mikrokontroler dan ROS 2</td></tr>
+<tr><td>Containerization</td><td>Docker Desktop</td><td>Latest</td><td>Digunakan untuk menjalankan dan mengelola layanan micro-ROS Agent</td></tr>
+<tr><td>IDE</td><td>Arduino IDE</td><td>2.3.6</td><td>Perangkat lunak untuk pengembangan dan pemrograman mikrokontroler</td></tr>
+<tr><td>Bahasa</td><td>Python</td><td>3.10</td><td>Digunakan untuk pengolahan logika sistem dan proses otomasi</td></tr>
 </table>
 </div>
 </section>
-<section id="tahap">
-<h2>Contoh Program Arduino</h2>
+<section id="TAHAP 1: ENVIRONMENT SETUP">
+<h2>Smart Incubator Monitoring System</h2>
 <div class="card">
+<h3>1️⃣Menyiapkan Sistem Operasi Utama (Windows 11)</h3>
+<p>Windows 11 digunakan sebagai host system (sistem utama) untuk menjalankan seluruh pengembangan.</p>
+</p>Fungsi utama:</p>
+</p>Menjalankan Arduino IDE</p>
+</p>Menjalankan Docker Desktop</p>
+</p>Menjalankan WSL 2 sebagai jembatan ke Linux</p>
+</p>Pastikan:</p>
+</p>Windows 11 sudah ter-update</p>
+</p>Virtualization aktif di BIOS</p>
+</p>RAM minimal 8 GB (disarankan)</p>
+<h3>2️⃣Mengaktifkan WSL 2 (Windows Subsystem for Linux)</h3>
+<p>WSL 2 memungkinkan kita menjalankan Linux langsung di dalam Windows tanpa dual boot.</p>
+</p>Langkah-langkah:</p>
+</p>Buka PowerShell (Run as Administrator)</p>
+</p>Jalankan perintah:</p>
+<pre>wsl --install
+</p>Restart komputer</p>
+</p>Pastikan WSL versi 2:</p>
+<pre>wsl --set-default-version 2
+</h3>3️⃣ Instalasi Ubuntu 24.04 LTS (OS Guest)</h3>
+</p>Ubuntu digunakan sebagai lingkungan Linux utama untuk ROS 2.</p>
+</p>Langkah-langkah:</p>
+</p>1. Buka Microsoft Store</p>
+</p>2. Cari Ubuntu 24.04 LTS</p>
+</p>3. Install dan jalankan</p>
+</p>4. Buat username & password Linux</p>
+</h3>4️⃣ Update Sistem Ubuntu</h3>
+</p>Sebelum instalasi ROS 2, sistem harus diperbarui.</p>
+</p>Kode:</p>
+<pre>sudo apt update
+<pre>sudo apt upgrade -y
+</h3>5️⃣ Instalasi ROS 2 Jazzy Jalisco</h3>
+</p>ROS 2 berfungsi sebagai middleware komunikasi.</p>
+</p>Langkah-langkah umum:</p>
+  </p>1. Tambahkan locale:</p>
+  <pre>sudo apt install locales
+sudo locale-gen en_US en_US.UTF-8
+sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+  </p>2. Tambahkan repository ROS 2:</p>
+  <pre>sudo apt install software-properties-common
+sudo add-apt-repository universe
+  </p>3. Install ROS 2 Jazzy:</p>
+  <pre>sudo apt update
+sudo apt install ros-jazzy-desktop -y
+  </p>4. Setup environment:</p>
+  <pre>source /opt/ros/jazzy/setup.bash
+</h3>6️⃣ Instalasi Docker Desktop</h3>
+</p>Docker digunakan untuk menjalankan micro-ros-agent secara terisolasi.</p>
+</p>Langkah-langkah:</p>
+    </p>Download Docker Desktop for Windows</p>
+    </p>Install dan aktifkan:</p>
+    <pre>WSL 2 backend
+    </p>Restart jika diminta</p>
+</h3>7️⃣ Menjalankan micro-ros-agent (Docker)</h3>
+</p>Micro-ROS Agent berfungsi sebagai jembatan antara mikrokontroler dan ROS 2.</p>
+</p>Jalankan container:</p>
+    <pre>docker run -it --rm \
+  --net=host \
+  microros/micro-ros-agent:jazzy \
+  serial --dev /dev/ttyUSB0 -b 115200
+</h3>8️⃣ Instalasi Arduino IDE</h3>
+</p>Arduino IDE digunakan untuk pemrograman mikrokontroler.</p>
+</p>Langkah-langkah:</p>
+      </p>1. Download Arduino IDE</p>
+      </p>2. Install di Windows</p>
+      </p>3. Tambahkan board: Arduino Uno</p>
+      </p>4. Install library: DHT Sensor Library by Adafruit</p>
+</h3>9️⃣ Instalasi Python (untuk ROS 2 Node)</h3>
+</p>Python digunakan untuk membuat logic node, monitoring, dan otomasi.</p>
+</p>Pastikan Python Terinstall</p>
+<pre>python3 --version
+</p>Jika belun:</p>
+<pre>sudo apt install python3 python3-pip -y
+</div>
+</section>
+<section id="TAHAP 2 HARDWARE SETUP">
 <pre>#include <DHT.h>
 #define DHTPIN 2
 #define DHTTYPE DHT11
