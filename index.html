@@ -200,8 +200,69 @@ sudo apt install ros-jazzy-desktop -y</pre>
   </div>
 </section>
 
+<section id="Hardware Setup">
+  <h2>Tahap II - Hardware Setup</h2>
+  <div class="card">
+  <p>Tahap ini bertujuan untuk merakit dan menyiapkan perangkat keras agar sistem dapat membaca suhu dan kelembapan inkubator bayi serta memberikan alarm peringatan secara otomatis.</p>
+    <ul>
+      <p>1️⃣ Persiapan Komponen Hardware</p>
+      <ul>
+      <li><b>Arduino Uno</b> – Mikrokontroler utama</li>
+      <li><b>Sensor DHT11</b> – Sensor suhu dan kelembapan</li>
+      <li><b>Buzzer</b> – Alarm peringatan</li>
+      <li><b>Breadboard</b> – Media perakitan sementara</li>
+      <li><b>Kabel jumper</b> – Penghubung antar komponen</li>
+      <li><b>Kabel USB</b> – Koneksi Arduino ke komputer</li>
+      </ul>
+      <p>2️⃣Wiring Komponen ke Arduino Uno</p>
+      <table>
+      <tr>
+        <th>Komponen</th>
+        <th>Kaki Komponen</th>
+        <th>Pin Arduino Uno</th>
+      </tr>
+      <tr>
+        <td class="komponen" rowspan="3">DHT 11</td>
+        <td>+</td>
+        <td>Vin</td>
+      </tr>
+      <tr>
+        <td>out</td>
+        <td>2</td>
+      </tr>
+      <tr>
+        <td>-</td>
+        <td>GND</td>
+      </tr>
+      <tr>
+        <td class="komponen" rowspan="2">Buzzer</td>
+        <td>+</td>
+        <td>8</td>
+      </tr>
+      <tr>
+        <td>-</td>
+        <td>GND</td>
+      </tr>
+      </table>
+      <p>3️⃣  Pemberian Daya dan Koneksi ke Komputer</p>
+      <ul>
+      <li>Hubungkan Arduino Uno ke komputer menggunakan kabel USB</li>
+      <li>Pastikan Arduino mendapatkan daya</li>
+      <li>LED indikator Arduino menyala</li>
+      </ul>
+      <p>4️⃣Uji Koneksi Awal (Tanpa Program)</p>
+      <ul>
+      <li>Pastikan Arduino terdeteksi di Arduino IDE</li>
+      <li>Pilih:</li>
+        <u>
+        <p>Board: Arduino Uno</p>
+        <p>Port: COM (sesuaikan port yang terdeteksi</p>
+        </u>
+      </ul>
+    </ul>
+    
 <section id="implementasi">
-  <h2>Contoh Program Arduino</h2>
+  <h2>Program Arduino</h2>
   <div class="card">
 <pre>#include <DHT.h>
 
