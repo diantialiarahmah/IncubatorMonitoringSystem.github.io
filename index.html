@@ -108,27 +108,27 @@
 </div>
 </section>
 <section id="TAHAP 1: ENVIRONMENT SETUP">
-<h2>Smart Incubator Monitoring System</h2>
+<h2>TAHAP 1: ENVIRONMENT SETUP</h2>
 <div class="card">
 <h3>1️⃣Menyiapkan Sistem Operasi Utama (Windows 11)</h3>
 <p>Windows 11 digunakan sebagai host system (sistem utama) untuk menjalankan seluruh pengembangan.</p>
 </p>Fungsi utama:</p>
-</p>Menjalankan Arduino IDE</p>
-</p>Menjalankan Docker Desktop</p>
-</p>Menjalankan WSL 2 sebagai jembatan ke Linux</p>
+<li>Menjalankan Arduino IDE<li>
+<li>Menjalankan Docker Desktop<li>
+<li>Menjalankan WSL 2 sebagai jembatan ke Linux<li>
 </p>Pastikan:</p>
-</p>Windows 11 sudah ter-update</p>
-</p>Virtualization aktif di BIOS</p>
-</p>RAM minimal 8 GB (disarankan)</p>
+<li>Windows 11 sudah ter-update<li>
+<li>Virtualization aktif di BIOS<li>
+<li>RAM minimal 8 GB (disarankan)<li>
 <h3>2️⃣Mengaktifkan WSL 2 (Windows Subsystem for Linux)</h3>
 <p>WSL 2 memungkinkan kita menjalankan Linux langsung di dalam Windows tanpa dual boot.</p>
 </p>Langkah-langkah:</p>
-</p>Buka PowerShell (Run as Administrator)</p>
-</p>Jalankan perintah:</p>
-<pre>wsl --install
-</p>Restart komputer</p>
-</p>Pastikan WSL versi 2:</p>
-<pre>wsl --set-default-version 2
+<li>Buka PowerShell (Run as Administrator)<li>
+<li></p>Jalankan perintah:</p><li>
+<pre>wsl --install<pre>
+<li></p>Restart komputer</p><li>
+<li></p>Pastikan WSL versi 2:</p><li>
+<pre>wsl --set-default-version 2<pre>
 </h3>3️⃣ Instalasi Ubuntu 24.04 LTS (OS Guest)</h3>
 </p>Ubuntu digunakan sebagai lingkungan Linux utama untuk ROS 2.</p>
 </p>Langkah-langkah:</p>
@@ -140,28 +140,28 @@
 </p>Sebelum instalasi ROS 2, sistem harus diperbarui.</p>
 </p>Kode:</p>
 <pre>sudo apt update
-<pre>sudo apt upgrade -y
+sudo apt upgrade -y<pre>
 </h3>5️⃣ Instalasi ROS 2 Jazzy Jalisco</h3>
 </p>ROS 2 berfungsi sebagai middleware komunikasi.</p>
 </p>Langkah-langkah umum:</p>
   </p>1. Tambahkan locale:</p>
   <pre>sudo apt install locales
 sudo locale-gen en_US en_US.UTF-8
-sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8<pre>
   </p>2. Tambahkan repository ROS 2:</p>
   <pre>sudo apt install software-properties-common
-sudo add-apt-repository universe
+sudo add-apt-repository universe<pre>
   </p>3. Install ROS 2 Jazzy:</p>
   <pre>sudo apt update
-sudo apt install ros-jazzy-desktop -y
+sudo apt install ros-jazzy-desktop -y<pre>
   </p>4. Setup environment:</p>
-  <pre>source /opt/ros/jazzy/setup.bash
+  <pre>source /opt/ros/jazzy/setup.bash<pre>
 </h3>6️⃣ Instalasi Docker Desktop</h3>
 </p>Docker digunakan untuk menjalankan micro-ros-agent secara terisolasi.</p>
 </p>Langkah-langkah:</p>
     </p>Download Docker Desktop for Windows</p>
     </p>Install dan aktifkan:</p>
-    <pre>WSL 2 backend
+    <pre>WSL 2 backend<pre>
     </p>Restart jika diminta</p>
 </h3>7️⃣ Menjalankan micro-ros-agent (Docker)</h3>
 </p>Micro-ROS Agent berfungsi sebagai jembatan antara mikrokontroler dan ROS 2.</p>
@@ -169,7 +169,7 @@ sudo apt install ros-jazzy-desktop -y
     <pre>docker run -it --rm \
   --net=host \
   microros/micro-ros-agent:jazzy \
-  serial --dev /dev/ttyUSB0 -b 115200
+  serial --dev /dev/ttyUSB0 -b 115200<pre>
 </h3>8️⃣ Instalasi Arduino IDE</h3>
 </p>Arduino IDE digunakan untuk pemrograman mikrokontroler.</p>
 </p>Langkah-langkah:</p>
@@ -180,9 +180,9 @@ sudo apt install ros-jazzy-desktop -y
 </h3>9️⃣ Instalasi Python (untuk ROS 2 Node)</h3>
 </p>Python digunakan untuk membuat logic node, monitoring, dan otomasi.</p>
 </p>Pastikan Python Terinstall</p>
-<pre>python3 --version
+<pre>python3 --version<pre>
 </p>Jika belun:</p>
-<pre>sudo apt install python3 python3-pip -y
+<pre>sudo apt install python3 python3-pip -y<pre>
 </div>
 </section>
 <section id="TAHAP 2 HARDWARE SETUP">
