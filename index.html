@@ -394,6 +394,8 @@ sudo apt install ros-jazzy-desktop -y</pre>
       <li>Menentukan tipe sensor (DHT11)</li>
       </ul>
         <p>Code arduino ide:</p>
+        <div class="code-box">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
         <pre>#include <DHT.h>
 
 #define DHTPIN 2        // Pin DATA DHT11
@@ -444,6 +446,8 @@ void loop() {
   delay(2000);
 }
 </pre>
+    </div>
+    
  <p>3️⃣ Pembacaan Data Sensor</p>
    <p>Arduino membaca nilai suhu dan kelembapan secara berkala dari sensor DHT11.</p> 
    <p>Penjelasan:</p>
