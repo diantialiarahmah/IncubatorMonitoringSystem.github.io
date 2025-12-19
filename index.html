@@ -593,21 +593,92 @@ source install/setup.bash</pre>
 <p>Cek alarm:</p>
 <pre>ros2 topic echo /incubator/alarm</pre>
   </ul>
-
+</section>
     
-<section id="trouble">
-  <h2>Troubleshooting</h2>
+<section id="troubleshooting">
+  <h2>🛠️ Troubleshooting &amp; Problem Solving</h2>
+
   <div class="card">
-    <ul>
-      <li>Arduino gagal dikompilasi → Periksa library dan board</li>
-      <li>Node ROS 2 tidak terhubung → Cek port & micro-ROS agent</li>
-      <li>Perintah ROS 2 tidak dikenali → Source environment ROS 2</li>
-    </ul>
+    <h3>⚠️ Kendala Umum &amp; Solusi Teknis</h3>
+    <p>
+      Tahap ini bertujuan untuk mengidentifikasi dan menangani permasalahan yang muncul
+      selama proses pengembangan <b>Smart Incubator Monitoring System</b>, khususnya
+      pada integrasi Arduino/ESP32 dengan ROS 2, sehingga sistem dapat berjalan secara
+      stabil dan optimal.
+    </p>
+
+    <h3>✅ Tested Solutions – 5 Common Issues</h3>
+
+    <div class="issue-box">
+      <h4>🔴 Problem #1 – Arduino Gagal Dikompilasi</h4>
+      <p><b>Penyebab:</b><br>
+        Library belum terpasang dengan benar atau pemilihan board tidak sesuai.
+      </p>
+      <p><b>Solusi:</b></p>
+      <ul>
+        <li>Pastikan board Arduino/ESP32 sudah dipilih dengan benar pada Arduino IDE</li>
+        <li>Instal library sensor (DHT) dan dependensi ROS 2 / micro-ROS yang diperlukan</li>
+      </ul>
+      <span class="status solved">✅ Solved</span>
+    </div>
+
+    <div class="issue-box">
+      <h4>🔴 Problem #2 – Node ROS 2 Tidak Terhubung ke Mikrokontroler</h4>
+      <p><b>Penyebab:</b><br>
+        Koneksi serial atau konfigurasi komunikasi ROS 2 tidak sesuai.
+      </p>
+      <p><b>Solusi:</b></p>
+      <ul>
+        <li>Periksa port serial yang digunakan</li>
+        <li>Pastikan micro-ROS agent berjalan dan menggunakan port yang benar</li>
+      </ul>
+      <span class="status solved">✅ Solved</span>
+    </div>
+
+    <div class="issue-box">
+      <h4>🔴 Problem #3 – Port Komunikasi ROS 2 Terblokir Firewall</h4>
+      <p><b>Penyebab:</b><br>
+        Firewall sistem operasi memblokir port UDP yang digunakan ROS 2.
+      </p>
+      <p><b>Solusi:</b></p>
+      <ul>
+        <li>Tambahkan aturan firewall untuk membuka port komunikasi ROS 2</li>
+        <li>Nonaktifkan firewall sementara saat pengujian</li>
+      </ul>
+      <span class="status solved">✅ Solved</span>
+    </div>
+
+    <div class="issue-box">
+      <h4>🔴 Problem #4 – ROS 2 Daemon Tidak Merespons (Timeout)</h4>
+      <p><b>Penyebab:</b><br>
+        ROS 2 daemon gagal berjalan akibat konflik proses atau konfigurasi.
+      </p>
+      <p><b>Solusi:</b></p>
+      <ul>
+        <li>Restart ROS 2 daemon menggunakan perintah <code>ros2 daemon stop</code> dan <code>ros2 daemon start</code></li>
+        <li>Pastikan environment ROS 2 sudah di-source dengan benar</li>
+      </ul>
+      <span class="status solved">✅ Solved</span>
+    </div>
+
+    <div class="issue-box">
+      <h4>🔴 Problem #5 – Perintah ROS 2 Tidak Dikenali</h4>
+      <p><b>Penyebab:</b><br>
+        Environment ROS 2 belum diaktifkan pada terminal.
+      </p>
+      <p><b>Solusi:</b></p>
+      <ul>
+        <li>Jalankan perintah <code>source /opt/ros/&lt;distro&gt;/setup.bash</code></li>
+        <li>Tambahkan perintah source ke file <code>.bashrc</code> agar otomatis</li>
+      </ul>
+      <span class="status solved">✅ Solved</span>
+    </div>
+
   </div>
 </section>
 
 <footer>
-  <p>© 2025 | Smart Incubator Monitoring System | Portofolio Tugas</p>
+  <p>© 2025 | Smart Incubator Monitoring System | Robotika Medis</p>
 </footer>
 
 </body>
